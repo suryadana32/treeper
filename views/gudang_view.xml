@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="gudang_list_view" model="ir.ui.view">
+        <field name="name">gudang.list.view</field>
+        <field name="model">gudang.info</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="gudang_list_view" model="ir.ui.view">
+        <field name="name">gudang.form.view</field>
+        <field name="model">gudang.info</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="nomer_gudang" />
+                <field name="is_sharing_gudang"/>
+                <field name="provinsi" string="Provinsi" placeholder="Please select provinsi"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gudang_info" model="ir.actions.act_window">
+        <field name="name">Gudang Info</field>
+        <field name="res_model">gudang.info</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="gudang_root_menu" name="Gudang"/>
+    <menuitem id="gudang_sub_menu" parent="gudang_root_menu"/>
+    <menuitem id="gudang_info_menu" action="action_gudang_info" parent="gudang_sub_menu"/>
+</odoo>
